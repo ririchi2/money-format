@@ -5,13 +5,15 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node --experimental-modules src/moneyFormat.mjs",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node --experimental-modules src/fizzbuzz.js",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.15.4",
+    "@types/jest": "^27.0.2",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-standard": "^16.0.3",
@@ -19,6 +21,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-standard": "^5.0.0",
+    "jest": "^27.2.4",
     "prettier": "^2.4.1"
   }
 }
