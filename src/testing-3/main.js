@@ -5,11 +5,33 @@ import fs from "fs"
 const rosFilePath = process.argv[2]
 const result = fs.readFileSync(rosFilePath, "utf8")
 
-const splitLines = str => str.split(/\r?\n/);
+const splitLines = result.split(/\r?\n/);
 
-console.log(splitLines[1])
+const productList = splitLines.map(function(element) {
+    const x = element.split(",")
+    
+    const product = {
+        name: x[0],
+        price: x[1],
+        quantity: x[2],
+        totalPrice: (x[1] * x[2]),
+    }
+
+    return product
+})
+
+
+const priceList = productList.map(element => {
+    let sum = 0;
+
+    sum += element.totalPrice
+
+    return sum
+})
+
+console.log(priceList)
 
 fs.writeFileSync(
     "./src/testing-3/report.txt",
-    `Tus ventas totales han sido 300€`,
+    `Tus ventas totales han sido ${priceList.reduce((a, b) => a + b, 0)}€`,
     )
